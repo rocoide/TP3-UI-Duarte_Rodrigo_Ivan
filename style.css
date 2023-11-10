@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+body {
+    overflow-x: hidden;
+    background-color: #000000;
+}
+
 .header
 {
     display: inline-block;
@@ -33,9 +38,10 @@
     opacity: 0.4;
 }
 
-.header-texto
-{
+
+.h1 { 
     position: absolute;
+    color: #801c1c
 }
 
 .nav{
@@ -57,7 +63,8 @@
     z-index: 10;
 }
 
-.nav-li a{
+
+.nav-li a {
     text-decoration: none;
     color: #ffffffcd;
 }
@@ -66,13 +73,16 @@
     margin-right: 2vw;
 }
 
-
-
-
 .footer{
     position: absolute;
     bottom: 0;
     width: 100vw;
     height: 30vh;
     background-color: #011c1c;
+}
+
+a:hover
+{
+    color: red;
+    transition: 0.6s;
 }
