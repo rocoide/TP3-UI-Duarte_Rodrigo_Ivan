@@ -70,7 +70,6 @@ body {
 
 .nav-li{
     padding: 5px;
-    z-index: 10;
 }
 
 
@@ -83,16 +82,131 @@ body {
     margin-right: 2vw;
 }
 
-.footer{
-    position: absolute;
-    bottom: 0;
-    width: 100vw;
-    height: 30vh;
-    background-color: #011c1c;
-}
 
 a:hover
 {
     color: red;
     transition: 0.6s;
+}
+
+.main{
+    width: 100vw;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.renglon{
+    margin-top: 1vh;
+    width: 80vw;
+    height: auto;
+    padding: 1vh;
+    display: flex;
+    padding-left: 0;
+    padding-right: 0;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+
+.formulario{
+    width: 100%;
+    height: auto;
+}
+
+.item-formulario{
+    margin-top: 0.5vh;
+    border-radius: 10%;
+    color: aliceblue;
+    border: none;
+    padding: 1vh;
+}
+
+.campo-formulario{
+    background-color: #000000;
+    border-bottom: solid;
+    margin-right: 2vw;
+    height: auto;
+}
+
+.boton-enviar{
+    margin-top: 2vh;
+    background-color: rgb(46, 192, 143);
+    padding: 1.5vh;
+    border: none;
+}
+
+.boton-enviar:hover{
+    color: black;
+    padding: 2vh;
+    transition: 0.6s;
+}
+
+.boton-borrar{
+    margin-top: 2vh;
+    margin-left: 2%;
+    background-color: rgb(225, 97, 37);
+    padding: 1.5vh;
+    border: none;
+}
+
+.boton-borrar:hover{
+    color: black;
+    padding: 2vh;
+    transition: 0.6s;
+}
+
+.contenedor-carta{
+    border-radius: 4%;
+    height: 450px;
+    width: 240px;
+}
+
+.contenedor-carta:hover{
+    box-shadow: 1px  5px 10px whitesmoke;
+    transform: scale(1.05);
+    transition: 0.6s;
+}
+
+.poster-carta{
+    background-color: aquamarine;
+    height: 80%;
+    width: 100%;
+}
+
+.descripcion-carta{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(6, 14, 33);
+    color: #ffffff;
+    height: 20%;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer{
+    margin-top: 5vh;
+    position: static;
+    bottom: 0;
+    width: 100vw;
+    height: 20vh;
+    background-color: #011c1c;
 }

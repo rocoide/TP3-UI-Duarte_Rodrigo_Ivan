@@ -16,7 +16,7 @@
 
 
     <nav class="nav">
-        <img class="header-img_logo" src="./perro_sin_nada.png" alt="imagen-logo">
+        <img class="header-img_logo" src="./imagenes/perro_sin_nada.png" alt="imagen-logo">
         <div class="nav-div">
             <ul class="nav-ul">
                 <li class="nav-li"><a class="fa-solid fa-house" href="http://127.0.0.1:5500/TP3-UI-Duarte_Rodrigo_Ivan-master/index.html"></a></li> 
@@ -25,6 +25,50 @@
             </ul>
         </div>
     </nav>
+
+    <main class="main">
+        <div class="renglon">
+            <form action="hhhhhhhhh" method="post" class="formulario">
+                <label for="titulo" class="item-formulario">Titulo:</label>
+                <input type="text" class="item-formulario campo-formulario" id="titulo" name="nombre" placeholder="Pelicula">
+            
+                <label class="item-formulario">Genero:</label>
+                <select class="item-formulario campo-formulario" id="genero">
+                    <option value="" selected>Seleccione género...</option>
+                    <option value="1">Acción</option>
+                    <option value="2">Aventuras</option>
+                    <option value="3">Ciencia ficción</option>
+                    <option value="4">Comedia</option>
+                    <option value="5">Documental</option>
+                    <option value="6">Drama</option>
+                    <option value="7">Fantasía</option>
+                    <option value="8">Musical</option>
+                    <option value="9">Suspenso</option>
+                    <option value="10">Terror</option>
+                </select>
+            
+                <label for="fecha" class="item-formulario">fecha:</label>
+                <input type="date" class="item-formulario campo-formulario" id="fecha" name="fecha"></textarea>
+            
+                <input type="submit" class="item-formulario boton-enviar" value="Enviar">
+                <button onclick="" class="item-formulario boton-borrar">Recargar Página</button>
+            </form>
+        </div>
+        <div class="renglon" id="contenedor-cartas">
+            <div class="contenedor-carta">
+                <div class="poster-carta">   
+                    <img class="header-img_fondo" src="https://th.bing.com/th/id/OIP.d3cygQpTvFn9vyzQeXYoQAAAAA?pid=ImgDet&rs=1" alt="imagen-sala-cine">
+   
+                </div>
+                <div class="descripcion-carta">
+                    <h2>Titulo</h2>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
 
     <footer class="footer"></footer>
 
