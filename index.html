@@ -11,7 +11,7 @@
 <body>
     <header class="header">
         <h1 class="h1">Cinema City</h1>
-        <img class="header-img_fondo" src="https://th.bing.com/th/id/R.7a8f337f3b5179bc2fd3b9534acbbe56?rik=uYP078BTlXzmpw&pid=ImgRaw&r=0" alt="imagen-sala-cine">
+        <img class="header-img_fondo" src="https://th.bing.com/th/id/R.5e0fed291d1167bb4e4365af246b1478?rik=JPtq3nZeEBstvA&pid=ImgRaw&r=0" alt="imagen-sala-cine">
     </header>
 
 
@@ -27,7 +27,7 @@
     </nav>
 
     <main class="main">
-        <div class="renglon">
+        <div class="renglon-fitros">
             <form action="hhhhhhhhh" method="post" class="formulario">
                 <label for="titulo" class="item-formulario">Titulo:</label>
                 <input type="text" class="item-formulario campo-formulario" id="titulo" name="nombre" placeholder="Pelicula">
@@ -54,16 +54,7 @@
                 <button onclick="" class="item-formulario boton-borrar">Recargar Página</button>
             </form>
         </div>
-        <div class="renglon" id="contenedor-cartas">
-            <div class="contenedor-carta">
-                <div class="poster-carta">   
-                    <img class="header-img_fondo" src="https://th.bing.com/th/id/OIP.d3cygQpTvFn9vyzQeXYoQAAAAA?pid=ImgDet&rs=1" alt="imagen-sala-cine">
-   
-                </div>
-                <div class="descripcion-carta">
-                    <h2>Titulo</h2>
-                </div>
-            </div>
+        <div class="renglon-cartas" id="contenedor-cartas">
         </div>
     </main>
 
@@ -72,6 +63,7 @@
 
     <footer class="footer"></footer>
 
-    <script src="javascript.js"></script>
+    <script type="module" src="components/carta.js"></script>
+    <script type="module" src="javascript.js"></script>
 </body>
 </html>
