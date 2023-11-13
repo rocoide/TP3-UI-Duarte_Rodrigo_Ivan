@@ -1,12 +1,11 @@
-export default function carta(){
+export default function carta(element){
     return `
-        <div class="contenedor-carta">
+        <div class="contenedor-carta" id=${element.pelicula.peliculaId}>
             <div class="poster-carta">   
-                <img class="header-img_fondo" src="https://th.bing.com/th/id/OIP.d3cygQpTvFn9vyzQeXYoQAAAAA?pid=ImgDet&rs=1" alt="imagen-sala-cine">
-
+                <img class="header-img_fondo" src=${element.pelicula.poster} alt="imagen-sala-cine">
             </div>
             <div class="descripcion-carta">
-                <h2>Titulo</h2>
+                <h2>${element.pelicula.titulo}</h2>
             </div>
         </div>
     `

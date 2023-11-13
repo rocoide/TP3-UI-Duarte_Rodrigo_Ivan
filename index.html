@@ -19,7 +19,7 @@
         <img class="header-img_logo" src="./imagenes/perro_sin_nada.png" alt="imagen-logo">
         <div class="nav-div">
             <ul class="nav-ul">
-                <li class="nav-li"><a class="fa-solid fa-house" href="http://127.0.0.1:5500/TP3-UI-Duarte_Rodrigo_Ivan-master/index.html"></a></li> 
+                <li class="nav-li"><a class="fa-solid fa-house" href="http://127.0.0.1:5500/"></a></li> 
                 <li class="nav-li"><a class="fa-brands fa-instagram" href="#"></a></li>
                 <li class="nav-li" id="icon-youtube"><a class="fa-brands fa-youtube" href="#"></a></li>
             </ul>
@@ -28,7 +28,7 @@
 
     <main class="main">
         <div class="renglon-fitros">
-            <form action="hhhhhhhhh" method="post" class="formulario">
+            <form action="" class="formulario">
                 <label for="titulo" class="item-formulario">Titulo:</label>
                 <input type="text" class="item-formulario campo-formulario" id="titulo" name="nombre" placeholder="Pelicula">
             
@@ -50,12 +50,19 @@
                 <label for="fecha" class="item-formulario">fecha:</label>
                 <input type="date" class="item-formulario campo-formulario" id="fecha" name="fecha"></textarea>
             
-                <input type="submit" class="item-formulario boton-enviar" value="Enviar">
-                <button onclick="" class="item-formulario boton-borrar">Recargar Página</button>
+                <button type="submit" class="item-formulario boton-enviar" id="enviar-formulario">Enviar</button>
+                <button type="submit" class="item-formulario boton-borrar" id="borrar-filtros">Borrar filtros</button>
             </form>
         </div>
+
+
         <div class="renglon-cartas" id="contenedor-cartas">
         </div>
+
+
+
+
+
     </main>
 
 
@@ -63,7 +70,6 @@
 
     <footer class="footer"></footer>
 
-    <script type="module" src="components/carta.js"></script>
     <script type="module" src="javascript.js"></script>
 </body>
 </html>
