@@ -30,6 +30,7 @@ const obtenerPelicula = async (dato) =>
                 // {
                 //     contenedor.removeChild(contenedor.firstChild);
                 // };
+                
             }
             else
             {
