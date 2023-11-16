@@ -1,3 +1,8 @@
+import poster from "./mapeos/poster.js";
+import datos from "./mapeos/datos.js";
+import trailer from "./mapeos/trailer.js";
+import sinopsisYBoton from "./mapeos/sinopsisYBoton.js";
+
 window.onload = async function ()  {
     const urlParams = new URLSearchParams(window.location.search);
     const dato = urlParams.get('dato');
@@ -25,12 +30,16 @@ const obtenerPelicula = async (dato) =>
             if (response.status === 200)
             {
                 let result = await response.json();
-                // let contenedor = document.getElementById("contenedor-pelicula");
-                // while (contenedor.firstChild) 
-                // {
-                //     contenedor.removeChild(contenedor.firstChild);
-                // };
-                
+                let contenedor = document.getElementById("contenedor-izquierdo");
+                let contenedor2 = document.getElementById("contenedor-derecho");
+                while (contenedor.firstChild) 
+                {
+                    contenedor.removeChild(contenedor.firstChild);
+                };
+                contenedor.innerHTML += await poster(result.poster);
+                contenedor.innerHTML += await datos(result);
+                contenedor2.innerHTML += await trailer(result.trailer);
+                contenedor2.innerHTML += await sinopsisYBoton(result.sinopsis);
             }
             else
             {

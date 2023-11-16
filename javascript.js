@@ -6,7 +6,7 @@ window.onload = async function ()  {
     agregarEnlanceDescripcion();
 };
 
-const funciones = async (titulo, fecha, generoId) => 
+const funciones = async (titulo, fecha, GeneroId) => 
     {
     const config = {
         method: 'GET',
@@ -19,7 +19,7 @@ const funciones = async (titulo, fecha, generoId) =>
     {
         const response = await fetch
         (
-            `https://localhost:7220/api/v1/Funcion?titulo=${titulo}&fecha=${fecha}&genero=${generoId}`, config
+            `https://localhost:7220/api/v1/Funcion?titulo=${titulo}&fecha=${fecha}&GeneroId=${GeneroId}`, config
         );
         if (response.ok === true)
         {
@@ -66,11 +66,8 @@ document.getElementById("enviar-formulario").addEventListener("click", (e) =>
 {
     e.preventDefault();
     let titulo = document.getElementById("titulo").value;
-    console.log(titulo);
     let genero = document.getElementById("genero").value;
-    console.log(genero);
     let fecha = document.getElementById("fecha").value;
-    console.log(fecha);
     funciones(titulo, fecha, genero);
 });
 
