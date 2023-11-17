@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../imagenes/dogs_icon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../css/indexStyle.css">
+    <link rel="stylesheet" type="text/css" href="../css/headerStyle.css">
+    <link rel="stylesheet" type="text/css" href="../css/footerStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Cinema</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="h1">Cinema City</h1>
+        <img class="header-img_fondo" src="https://th.bing.com/th/id/R.5e0fed291d1167bb4e4365af246b1478?rik=JPtq3nZeEBstvA&pid=ImgRaw&r=0" alt="imagen-sala-cine">
+    </header>
+
+
+    <nav class="nav">
+        <img class="header-img_logo" src="../imagenes/perro_sin_nada.png" alt="imagen-logo">
+        <div class="nav-div">
+            <ul class="nav-ul">
+                <li class="nav-li"><a class="fa-solid fa-house" href="http://127.0.0.1:5500/"></a></li> 
+                <li class="nav-li"><a class="fa-brands fa-instagram" href="#"></a></li>
+                <li class="nav-li" id="icon-youtube"><a class="fa-brands fa-youtube" href="#"></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main">
+        <div class="renglon-fitros">
+            <form action="" class="formulario">
+                <label for="titulo" class="item-formulario">Titulo:</label>
+                <input type="text" class="item-formulario campo-formulario" id="titulo" name="nombre" placeholder="Pelicula">
+            
+                <label class="item-formulario">Genero:</label>
+                <select class="item-formulario campo-formulario" id="genero">
+                    <option value="" selected>Seleccione género...</option>
+                    <option value="1">Acción</option>
+                    <option value="2">Aventuras</option>
+                    <option value="3">Ciencia ficción</option>
+                    <option value="4">Comedia</option>
+                    <option value="5">Documental</option>
+                    <option value="6">Drama</option>
+                    <option value="7">Fantasía</option>
+                    <option value="8">Musical</option>
+                    <option value="9">Suspenso</option>
+                    <option value="10">Terror</option>
+                </select>
+            
+                <label for="fecha" class="item-formulario">fecha:</label>
+                <input type="date" class="item-formulario campo-formulario" id="fecha" name="fecha"></textarea>
+            
+                <button type="submit" class="item-formulario boton-enviar" id="enviar-formulario">Enviar</button>
+                <button type="submit" class="item-formulario boton-borrar" id="borrar-filtros">Borrar filtros</button>
+            </form>
+        </div>
+
+
+        <div class="renglon-cartas" id="contenedor-cartas">
+        </div>
+
+
+
+
+
+    </main>
+
+
+
+
+    <footer class="footer"></footer>
+
+    <script type="module" src="../funcionService.js"></script>
+</body>
+</html>

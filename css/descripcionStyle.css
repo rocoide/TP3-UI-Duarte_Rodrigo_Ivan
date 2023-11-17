@@ -1,0 +1,167 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+p{
+    margin: 0;
+    padding: 0;
+}
+
+.main
+{
+    padding-top: 2%;
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: #00000045;
+}
+
+.columna-poster
+{
+    width: 30vw;
+    height: 80vh;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contenedor-imagen
+{
+    width: 40vh;
+    height: 60vh;
+    border-radius: 5%;
+}
+
+.imagen-poster
+{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5%;
+}
+
+.datos-pelicula
+{
+    margin-top: 2vh;
+    height: auto;
+    width: 30vh;
+    color: #ffffff;
+    border-radius: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: large;
+    text-align: center;
+    color: rgb(255, 217, 0);
+}
+
+.columna-trailer
+{
+    height: 80vh;
+    width: 45vw;
+    min-width: 700px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+ 
+.contenedor-trailer{
+    width: auto;
+    height: auto;
+    border-radius: 5%;
+}
+
+.trailer
+{
+    width: 560px; 
+    height: 315px;
+}
+
+.sinopsis-pelicula
+{
+    color: #ffffff;
+    font-weight: bolder;
+    text-align: justify;
+    margin-top: 2vh;
+    height: auto;
+    width: 560px;
+    padding: 2%;
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: 5%;
+}
+
+.boton-funciones{
+    margin-top: 2vh;
+    background-color: rgb(46, 192, 143);
+    padding: 1.5vh;
+    color: white;
+    border-radius: 20%;
+    border: none;
+}
+
+.boton-funciones:hover{
+    color: black;
+    background-color: rgb(40, 231, 167);
+    padding: 2vh;
+    transition: 0.6s;
+}
+
+.section
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100vw;
+}
+
+.section-div
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 80vw;
+    height: auto;
+    padding: 2%;
+    border-top: solid 1px rgb(255, 255, 255);
+    border-bottom: solid 1px rgb(255, 255, 255);
+    border-radius: 10%;
+}
+
+.boton-funcion
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    text-align: center;
+    width: 15vw;
+    height: auto;
+    border: solid 1px #ffffff;
+    border-radius: 15%;
+    background-color: rgb(6, 14, 33);
+    padding: 2.5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-right: 2%;
+    margin-top: 2%;
+}
+
+.boton-funcion:hover
+{
+    box-shadow: 1px  5px 10px whitesmoke;
+    transform: scale(1.05);
+    transition: 0.3s;
+    font-weight: bold;
+}

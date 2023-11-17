@@ -1,0 +1,8 @@
+.footer{
+    margin-top: 10vh;
+    position: static;
+    bottom: 0;
+    width: 100vw;
+    height: 20vh;
+    background-color: #011c1c;
+}
