@@ -146,7 +146,9 @@ p{
     align-items: center;
     color: #ffffff;
     text-align: center;
-    width: 15vw;
+    width: 50vw;
+    max-width: 200px;
+    min-width: 100px;
     height: auto;
     border: solid 1px #ffffff;
     border-radius: 15%;
@@ -154,8 +156,7 @@ p{
     padding: 2.5%;
     padding-top: 1%;
     padding-bottom: 1%;
-    margin-right: 2%;
-    margin-top: 2%;
+    margin: 10px;
 }
 
 .boton-funcion:hover
@@ -165,3 +166,34 @@ p{
     transition: 0.3s;
     font-weight: bold;
 }
+
+.renglon-modal
+{
+    padding-bottom: 2%;
+}
+
+.formulario{
+    width: 100%;
+    height: auto;
+}
+
+.item-formulario{
+    margin-top: 0.5vh;
+    border-radius: 10%;
+    color: aliceblue;
+    border: none;
+    padding: 1vh;
+}
+
+.campo-formulario{
+    background-color: #000000;
+    border-bottom: solid;
+    margin-right: 2vw;
+    height: auto;
+}
+
+.dark
+{
+    background-color: rgb(6, 14, 33);
+}
+

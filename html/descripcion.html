@@ -41,10 +41,46 @@
             
         </div>
     </section>
+      
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header dark">
+                    <h1 class="modal-title fs-5 item-formulario" id="exampleModalLabel">Reservar tickets</h1>
+                    <div data-bs-theme="dark">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="modal-body dark">
+                    <form action="" id="formulario">
+                        <input type="hidden" id="oculto" name="oculto" value="0">
+                        <div class="renglon-modal">
+                            <label for="usuario" class="item-formulario">Usuario:</label>
+                            <input type="text" class="item-formulario campo-formulario" id="usuario" name="nombre" placeholder="Usuario" required>
+                        </div>
+                        <div class="renglon-modal">
+                            <label for="cantidad" class="item-formulario">Cantidad:</label>
+                            <input type="number" class="item-formulario campo-formulario" id="cantidad" name="cantidad" placeholder="0" min="1" required> 
+                        </div>
+                        <label class="renglon-modal item-formulario" id="modal-leyenda"></label>                       
+                    </form>
+                </div>
+                <div class="modal-footer dark">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-danger" form="formulario" id="boton-reserva">Reservar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     <footer class="footer">    </footer>
 
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script type="module" src="../peliculaService.js"></script>
 
 </body>
