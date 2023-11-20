@@ -37,9 +37,6 @@ const tarjetaTicket = async (funcion, usuario, cantidad) =>
                     contenedor.innerHTML += await ticket(result.tickets[index], result);
                 }
             }
-            else
-            {
-            }
         }
         else
         {
