@@ -1,86 +1,99 @@
 import carta from "../mapeos/carta.js"
 import filtrarFunciones from "../metodos/filtrarFunciones.js"
+import funciones from "../fetchs/fetchFunciones.js";
+import agregarEnlanceDescripcion from "../metodos/agregarEnlace.js";
+import sinFunciones from "../mapeos/sinFunciones.js";
 
 window.onload = async function ()  {
-    await funciones("","","");
-    agregarEnlanceDescripcion();
+    let response = await funciones("","","");
+    await mapearFunciones(response);
 };
 
-const funciones = async (titulo, fecha, GeneroId) => 
+const mapearFunciones = async (response) => {
+    if (response.ok === true)
     {
-    const config = {
-        method: 'GET',
-        headers: 
+        if (response.status === 200)
         {
-            'Content-Type': 'application/json'
-        },
-    };
-    try 
-    {
-        const response = await fetch
-        (
-            `https://localhost:7220/api/v1/Funcion?titulo=${titulo}&fecha=${fecha}&GeneroId=${GeneroId}`, config
-        );
-        if (response.ok === true)
-        {
-            if (response.status === 200)
+            let result = await response.json();
+            let contenedor = document.getElementById("contenedor-cartas");
+            let div = document.createElement("div");
+            while (contenedor.firstChild) 
             {
-                let result = await response.json();
-                let contenedor = document.getElementById("contenedor-cartas");
-                while (contenedor.firstChild) 
-                {
-                    contenedor.removeChild(contenedor.firstChild);
-                };
-                if (result.length !== 0)
-                {
-                    result = await filtrarFunciones(result);
-                    result.forEach(element => {
-                        contenedor.innerHTML += carta(element);
-                    });
-                    agregarEnlanceDescripcion();
+                contenedor.removeChild(contenedor.firstChild);
+            };
+            if (result.length !== 0)
+            {
+                result = await filtrarFunciones(result);
+                for (let index = 0; index < result.length; index++) {
+                    div.innerHTML += await carta(result[index]);
                 }
-                else
-                {
-                    contenedor.innerHTML = '<h2 class="h2">No hay funciones actualmente</h2>';
-                }
+                contenedor.innerHTML += div.innerHTML;
+                await agregarEnlanceDescripcion();
             }
             else
             {
-                console.log(`El servidor contesto con un ${response.status}`);
+                contenedor.innerHTML += await sinFunciones();
             }
         }
         else
         {
-            console.log("Error de conexion");
-        }  
-    } 
-    catch (error) 
+            console.log(`El servidor contesto con un ${response.status}`);
+        }
+    }
+    else
     {
-      console.log(error);
+        console.log("Error de conexion");
     }
 };
 
 
 
+document.getElementById("titulo").addEventListener("input", async() =>
+{
+    const filtroTitulo = document.getElementById("titulo");
+    if (filtroTitulo.value.length >= 3) 
+    {
+        let genero = document.getElementById("genero").value;
+        let fecha = document.getElementById("fecha").value;
+        await mapearFunciones(await funciones(filtroTitulo.value, fecha, genero));
+    }
+});
 
-document.getElementById("enviar-formulario").addEventListener("click", (e) => 
+document.getElementById("genero").addEventListener("change", async() =>
+{
+    const filtroGenero = document.getElementById("genero");
+    let titulo = document.getElementById("titulo").value;
+    let fecha = document.getElementById("fecha").value;
+    await mapearFunciones(await funciones(titulo, fecha, filtroGenero.value));
+});
+
+document.getElementById("fecha").addEventListener("input", async() =>
+{
+    const filtroFecha = document.getElementById("fecha");
+    let titulo = document.getElementById("titulo").value;
+    let genero = document.getElementById("genero").value;
+    await mapearFunciones(await funciones(titulo, filtroFecha.value, genero));
+});
+
+
+document.getElementById("enviar-formulario").addEventListener("click", async (e) => 
 {
     e.preventDefault();
     let titulo = document.getElementById("titulo").value;
     let genero = document.getElementById("genero").value;
     let fecha = document.getElementById("fecha").value;
-    funciones(titulo, fecha, genero);
+    await mapearFunciones(await funciones(titulo, fecha, genero));
 });
 
-const agregarEnlanceDescripcion = async () =>
-{
-    const listaContenedores = document.querySelectorAll(".contenedor-carta");
-    listaContenedores.forEach(element => 
-    {
-        element.addEventListener("click", () => 
-        {
-            window.location.href = `./descripcion.html?dato=${element.id}`;
-        });
-    });
-};
 
+document.getElementById("borrar-filtros").addEventListener("click", async (e) => 
+{
+    e.preventDefault();
+    let titulo = document.getElementById("titulo");
+    titulo.value = "";
+    let genero = document.getElementById("genero");
+    genero.value = "";
+    let fecha = document.getElementById("fecha");
+    fecha.value = "";
+    await mapearFunciones(await funciones(titulo.value, genero.value, fecha.value));
+});

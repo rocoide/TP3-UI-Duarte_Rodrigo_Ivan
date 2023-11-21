@@ -1,5 +1,6 @@
 .main{
     width: 100vw;
+    min-height: 40vh;
     height: auto;
     display: flex;
     justify-content: center;
@@ -8,14 +9,13 @@
 }
 
 .renglon-fitros{
-    margin-top: 1vh;
     width: 80vw;
     height: auto;
     padding: 1vh;
     display: flex;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0;
     justify-content: start;
+    align-items: center;
     flex-wrap: wrap;
     color: #ffffff;
 }
@@ -28,7 +28,7 @@
 .item-formulario{
     margin-top: 0.5vh;
     border-radius: 10%;
-    color: aliceblue;
+    color: #f0f8ff;
     border: none;
     padding: 1vh;
 }
@@ -42,50 +42,52 @@
 
 .boton-enviar{
     margin-top: 2vh;
-    background-color: rgb(46, 192, 143);
+    background-color: #2ec061;
     padding: 1.5vh;
     border: none;
 }
 
 .boton-enviar:hover{
     color: black;
-    padding: 2vh;
+    transform: scale(1.05);
+    background-color: #0ee258;
     transition: 0.3s;
+    border: solid 1px wheat;
 }
 
 .boton-borrar{
     margin-top: 2vh;
     margin-left: 2%;
-    background-color: rgb(225, 97, 37);
+    background-color: #e16a25;
     padding: 1.5vh;
     border: none;
 }
 
 .boton-borrar:hover{
     color: black;
-    padding: 2vh;
+    transform: scale(1.05);
+    background-color: #f35f0a;
+    border: solid 1px wheat;
     transition: 0.3s;
 }
 
 .renglon-cartas{
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     flex-wrap: wrap;
-    align-items: start;
+    align-items: center;
     color: #ffffff;
-    min-height: 60vh;
+    min-height: 50vh;
+    height: auto;
     width: 80vw;
-    padding-top: 2vh;
 }
-
 
 .contenedor-carta{
     border-radius: 4%;
     height: 450px;
     width: 240px;
-    margin-top: 4vh;
-    margin-right: 5vh;
+    margin: 4vh;
+    overflow: hidden;
 }
 
 .contenedor-carta:hover{
@@ -114,19 +116,26 @@
 
 .h2 {
     width: 100%;
+    font-size: x-large;
     text-align: center;
 }
 
+.contenedor-sticker
+{
+    width: 100vw;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10%;
+}
 
-
-
-
-
-
-
-
-
-
+.img-main{
+    aspect-ratio: 1;
+    margin-left: 10vw;
+    width:10vw;
+    z-index: -1;
+}
 
 .footer{
     margin-top: 10vh;
