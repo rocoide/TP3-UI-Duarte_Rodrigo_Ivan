@@ -17,7 +17,8 @@ export default async function postTickets(funcion, usuario, cantidad)
         (
             `https://localhost:7220/api/v1/Funcion/${funcion}/tickets`, config
         );
-        return response;
+        let result = await response.json();
+        return result;
     }
     catch (error) 
     {

@@ -119,7 +119,9 @@ document.getElementById("boton-reserva").addEventListener("click", async (e) =>
     else
     {
         let response = await postTickets(numOculto, usuario, cantidad);
-        
-        window.location.href = `./ticket.html?response=${response}`;
+        console.log(response);
+        let responseJson = JSON.stringify(response);
+        console.log(responseJson);
+        window.location.href = `./ticket.html?response=${encodeURIComponent(responseJson)}`;
     };
 });

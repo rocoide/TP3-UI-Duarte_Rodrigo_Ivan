@@ -17,22 +17,18 @@ const mapearFunciones = async (response) => {
             let result = await response.json();
             let contenedor = document.getElementById("contenedor-cartas");
             let div = document.createElement("div");
-            while (contenedor.firstChild) 
-            {
-                contenedor.removeChild(contenedor.firstChild);
-            };
             if (result.length !== 0)
             {
                 result = await filtrarFunciones(result);
                 for (let index = 0; index < result.length; index++) {
                     div.innerHTML += await carta(result[index]);
                 }
-                contenedor.innerHTML += div.innerHTML;
+                contenedor.innerHTML = div.innerHTML;
                 await agregarEnlanceDescripcion();
             }
             else
             {
-                contenedor.innerHTML += await sinFunciones();
+                contenedor.innerHTML = await sinFunciones();
             }
         }
         else
