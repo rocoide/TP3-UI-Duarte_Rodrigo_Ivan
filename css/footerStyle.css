@@ -1,10 +1,11 @@
 .footer{
-    margin-top: 10vh;
     position: static;
     bottom: 0;
     padding: 2%;
     width: 100vw;
     min-height: 20vh;
+    padding: 4%;
+    margin-top: 2vh;
     height: auto;
     display: flex;
     align-items: center;
@@ -20,12 +21,15 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 #github{
     fill: white;
     transform: scale(2);
     min-width: 24px;
+    margin-bottom: 2%;
+    margin-top: 2%;
 }
 
 #github:hover{
@@ -38,6 +42,8 @@
 {
     padding-left: 1%;
     width: auto;
+    min-width: 200px;
+    margin-top: 2vh;
     color: #f0f8ff;
     text-decoration: none;
 }

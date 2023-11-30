@@ -16,14 +16,13 @@ p{
 
 .header
 {
-    display: inline-block;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #ffffffdd;
     background-color: #000000;
     width: 100vw;
-    height: 25vh;
+    height: 10vh;
     user-select: none;
 }
 
@@ -39,7 +38,7 @@ p{
     height: 15vw;
     position: absolute;
     top: 3vh;
-    left: 12vw;
+    left: 1vw;
     opacity: 0.4;
     user-select: none;
 }
@@ -47,15 +46,19 @@ p{
 
 .h1 { 
     font-size:xx-large;
-    position: absolute;
     color: #be2727;
     text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(0, 0, 0), 0 0 5px rgb(0, 0, 0);
 }
 
 .h1:hover{
-    color: #6ce9ed;
     transform: scale(1.05);
+    color: #6ce9ed;
     transition: 0.3s;
+}
+
+.titulo-header{
+    text-decoration: none;
+    position: absolute;
 }
 
 .nav{
@@ -87,7 +90,7 @@ p{
 }
 
 
-a:hover
+.nav-li a:hover
 {
     color: red;
     transition: 0.6s;

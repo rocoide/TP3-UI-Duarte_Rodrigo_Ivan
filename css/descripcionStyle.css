@@ -97,6 +97,7 @@
     align-items: center;
     height: auto;
     width: 100vw;
+    margin-bottom: 3vh;
 }
 
 .section-div
@@ -171,4 +172,3 @@
 {
     background-color: rgb(6, 14, 33);
 }
-

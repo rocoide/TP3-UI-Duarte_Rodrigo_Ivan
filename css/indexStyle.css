@@ -40,53 +40,36 @@
     height: auto;
 }
 
-.boton-enviar{
-    margin-top: 2vh;
-    background-color: #2ec061;
-    padding: 1.5vh;
-    border: none;
+.boton
+{
+    margin-right: 1%;
 }
 
-.boton-enviar:hover{
-    color: black;
-    transform: scale(1.05);
-    background-color: #0ee258;
-    transition: 0.3s;
-    border: solid 1px wheat;
-}
-
-.boton-borrar{
-    margin-top: 2vh;
-    margin-left: 2%;
-    background-color: #e16a25;
-    padding: 1.5vh;
-    border: none;
-}
-
-.boton-borrar:hover{
-    color: black;
-    transform: scale(1.05);
-    background-color: #f35f0a;
-    border: solid 1px wheat;
+.boton:hover{
+    transform: scale(1.15);
     transition: 0.3s;
 }
 
 .renglon-cartas{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
-    color: #ffffff;
     min-height: 50vh;
     height: auto;
     width: 80vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    margin-top: 4vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    color: #ffffff;
 }
 
 .contenedor-carta{
     border-radius: 4%;
     height: 450px;
     width: 240px;
-    margin: 4vh;
+    margin: 2%;
+    margin-top: 4vh;
     overflow: hidden;
 }
 
@@ -132,6 +115,7 @@
 
 .img-main{
     aspect-ratio: 1;
+    user-select: none;
     width:10vw;
     min-width: 250px;
     z-index: -1;

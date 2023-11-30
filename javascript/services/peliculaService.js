@@ -6,6 +6,7 @@ import botonFuncion from "../mapeos/botonFuncion.js";
 import peliculaById from "../fetchs/fecthPeliculaById.js";
 import ticketsDisponibles from "../fetchs/fetchTicketsDisponibles.js";
 import postTickets from "../fetchs/fetchPostTickets.js";
+import ordenarFunciones from "../metodos/ordenarFunciones.js";
 
 window.onload = async function ()  {
     const urlParams = new URLSearchParams(window.location.search);
@@ -34,12 +35,22 @@ const obtenerPelicula = async (peli) =>
             div2.innerHTML += await trailer(result.trailer);
             div2.innerHTML += await sinopsis(result.sinopsis);
             contenedor2.innerHTML += div2.innerHTML;
-            
+
+            let funcionesOrdenadas = await ordenarFunciones(result);
+
             let contenedor3 = document.getElementById("section-div");
             let div3 = document.createElement("div");
-            result.funciones.forEach(element => {
-                div3.innerHTML += botonFuncion(element);
-            });
+            
+            let cantResponse;
+            let cantResult;
+            for (let index = 0; index < funcionesOrdenadas.length; index++) 
+            {
+                const element = funcionesOrdenadas[index];
+                cantResponse = await ticketsDisponibles(element.funcionId);
+                cantResult = await cantResponse.json();
+                div3.innerHTML += await botonFuncion(element, cantResult.cantidad);
+            }
+
             contenedor3.innerHTML += div3.innerHTML;
         }
     }
@@ -63,13 +74,11 @@ const botonesFunciones = async () =>
     botones.forEach(element => {
         element.addEventListener("click", async () =>
         {
-            let idBoton = element.id;
-            let numeroOculto = document.getElementById("oculto");
+            document.getElementById("oculto-id").value = element.id;
             let usuario = document.getElementById("usuario");
             let cantidad = document.getElementById("cantidad");
             usuario.value = "";
             cantidad.value = "";
-            numeroOculto.value = idBoton;
             let response = await ticketsDisponibles(element.id);
             if (response.ok === true)
             {
@@ -78,8 +87,7 @@ const botonesFunciones = async () =>
                     let result = await response.json();
                     let leyendaModal = document.getElementById("modal-leyenda");
                     leyendaModal.innerHTML = `Hay ${result.cantidad} tickets disponibles para esta funcion`;
-                    let limiteMaximo = document.getElementById("limite-maximo");
-                    limiteMaximo.value = `${result.cantidad}`;
+                    document.getElementById("limite-maximo").value = `${result.cantidad}`;
                 }
             }
             else
@@ -96,32 +104,41 @@ document.getElementById("boton-reserva").addEventListener("click", async (e) =>
 {
     e.preventDefault();
     let usuario = await document.getElementById("usuario").value;
-    let cantidad = await document.getElementById("cantidad").value;
-    let numOculto = await document.getElementById("oculto").value;
+    let cantidadSolicitada = await document.getElementById("cantidad").value;
+    let numOcultoId = await document.getElementById("oculto-id").value;
     let limiteMaximo = parseInt(await document.getElementById("limite-maximo").value);
-    if (usuario === "" || cantidad === "" || cantidad < 1 || limiteMaximo < cantidad)
+    if (usuario === "" || cantidadSolicitada === "" || cantidadSolicitada < 1 || limiteMaximo < cantidadSolicitada)
     {
         let formulario = document.getElementById("formulario");
-        if (cantidad < 1)
+        if (cantidadSolicitada < 1)
         {
             document.getElementById("cantidad").setCustomValidity('debe ingresar valores positivos'); 
         };
-        if(limiteMaximo < cantidad)
+        if(limiteMaximo < cantidadSolicitada)
         {
             document.getElementById("cantidad").setCustomValidity('Se excede del límite de entradas disponibles');
         };
-        if(usuario === "" || cantidad === "")
+        if(usuario === "" || cantidadSolicitada === "")
         {
             document.getElementById("cantidad").setCustomValidity('Debe completar este campo'); 
-        };  
+        };
         formulario.reportValidity(); 
     }
     else
     {
-        let response = await postTickets(numOculto, usuario, cantidad);
-        console.log(response);
-        let responseJson = JSON.stringify(response);
-        console.log(responseJson);
-        window.location.href = `./ticket.html?response=${encodeURIComponent(responseJson)}`;
+        let cantResponse = await ticketsDisponibles(numOcultoId);
+        let cantDisponibleResult = await cantResponse.json();
+        if (parseInt(cantDisponibleResult.cantidad) < cantidadSolicitada)
+        {
+            document.getElementById("cantidad").value = "";
+            document.getElementById("cantidad").setCustomValidity('Ya no quedan suficientes tickets disponibles.');  
+            formulario.reportValidity();  
+        }
+        else
+        {
+            let response = await postTickets(numOcultoId, usuario, cantidadSolicitada);
+            let responseJson = JSON.stringify(response);
+            window.location.href = `./ticket.html?response=${encodeURIComponent(responseJson)}`;
+        }
     };
 });
