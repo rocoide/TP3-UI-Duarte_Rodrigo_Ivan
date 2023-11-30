@@ -7,6 +7,8 @@ import peliculaById from "../fetchs/fecthPeliculaById.js";
 import ticketsDisponibles from "../fetchs/fetchTicketsDisponibles.js";
 import postTickets from "../fetchs/fetchPostTickets.js";
 import ordenarFunciones from "../metodos/ordenarFunciones.js";
+import funcionesActuales from "../metodos/funcionesActuales.js";
+import funcionById from "../fetchs/fetchFuncionById.js";
 
 window.onload = async function ()  {
     const urlParams = new URLSearchParams(window.location.search);
@@ -23,6 +25,9 @@ const obtenerPelicula = async (peli) =>
         if (peli.status === 200)
         {
             let result = await peli.json();
+
+            // let funciones = await funcionesActuales(result.funciones);
+            // result.funciones = funciones;
 
             let contenedor = document.getElementById("contenedor-izquierdo");
             let div = document.createElement("div");
@@ -79,15 +84,20 @@ const botonesFunciones = async () =>
             let cantidad = document.getElementById("cantidad");
             usuario.value = "";
             cantidad.value = "";
-            let response = await ticketsDisponibles(element.id);
-            if (response.ok === true)
+            let responseCantidad = await ticketsDisponibles(element.id);
+            let responseFuncion = await funcionById(element.id);
+            if (responseCantidad.ok === true)
             {
-                if (response.status === 200)
+                if (responseCantidad.status === 200)
                 {
-                    let result = await response.json();
-                    let leyendaModal = document.getElementById("modal-leyenda");
-                    leyendaModal.innerHTML = `Hay ${result.cantidad} tickets disponibles para esta funcion`;
-                    document.getElementById("limite-maximo").value = `${result.cantidad}`;
+                    let resultCantidad = await responseCantidad.json();
+                    let resultFuncion = await responseFuncion.json();
+
+                    document.getElementById("modal-leyenda").innerHTML = `Hay ${resultCantidad.cantidad} tickets disponibles para esta funcion`;
+                    document.getElementById("modal-leyenda-sala").innerHTML = `Sala: ${resultFuncion.sala.nombre}`;
+                    document.getElementById("modal-leyenda-capacidad").innerHTML = `Capacidad: ${resultFuncion.sala.capacidad}`;
+                    
+                    document.getElementById("limite-maximo").value = `${resultCantidad.cantidad}`;
                 }
             }
             else

@@ -3,6 +3,7 @@ import filtrarFunciones from "../metodos/filtrarFunciones.js"
 import funciones from "../fetchs/fetchFunciones.js";
 import agregarEnlanceDescripcion from "../metodos/agregarEnlace.js";
 import sinFunciones from "../mapeos/sinFunciones.js";
+import funcionesActuales from "../metodos/funcionesActuales.js";
 
 window.onload = async function ()  {
     let response = await funciones("","","");
@@ -15,6 +16,9 @@ const mapearFunciones = async (response) => {
         if (response.status === 200)
         {
             let result = await response.json();
+
+            //result = await funcionesActuales(result);
+            
             let contenedor = document.getElementById("contenedor-cartas");
             let div = document.createElement("div");
             if (result.length !== 0)
